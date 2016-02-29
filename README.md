@@ -15,6 +15,8 @@ The activities were: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STA
 For a specified set of motion attributes (those with "mean" or "std" in their variable names--79 of them in total),
 the average was calculated for each combination of subject and activities.
 
+[Column names of motion attributes were left as-is, since they seemed to be already adequate in the source data.]
+
 The resultant datafile holds 180 records (30 subjects x 6 activities).
 Each record lists the number of the subject (from 1 to 30), the activity name, and the average of the 79 motion attributes.
 

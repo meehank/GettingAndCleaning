@@ -12,7 +12,7 @@
 #1. Merges the training and the test sets to create one data set.
 rm(list=ls(all=TRUE))    #clear workspace
 #read in data, setting column names of X_test and X_train to 2nd column in features.txt
-setwd("~/R/Getting&CleaningProject")
+setwd("~/R/GettingandCleaning")
 activities <- read.csv("activity_labels.txt", sep="", header=FALSE, col.names=c("activity_code", "activity_desc"))
 features <- read.table("features.txt", sep="", header=FALSE)
 setwd("test")
@@ -30,7 +30,7 @@ df <-rbind(test, train)                            #combine all rows of test & t
 remove(features, subject_test, subject_train, test, train, X_test, X_train, y_test, y_train) #cleanup
 
 #2. Extracts only the measurements on the mean and standard deviation for each measurement.
-df <- cbind(df[,1:2], df[, grep("mean|std", colnames(df))])   #first 3 cols & any ending w/ "mean" or "std"
+  df <- cbind(df[,1:2], df[, grep("mean|std", colnames(df))])   #first 2 cols & any ending w/ "mean" or "std"
 
 #3. Uses descriptive activity names to name the activities in the data set
 df <- merge(activities, df)
@@ -45,6 +45,6 @@ df <- df[-grep('activity.code', colnames(df))]     #remove activity.code column
 #   average of each variable for each activity and each subject.
 library(dplyr)
 by_subj_act <- df %>% group_by(subject_number, activity_desc)    #group by subject & activity
-output <- by_subj_act %>% summarise_each(funs(mean))   #get mean of each variable for each group
+output <- by_subj_act %>% summarize_each(funs(mean))   #get mean of each variable for each group
 
 write.csv(output, file="output.csv", row.names=FALSE)
