@@ -8,10 +8,10 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 run_analysis.R takes these steps to prepare the data:
 1.	Creates "activities" dataframe by using read.csv with sep="", header=FALSE,
-	and col.names=c(("activity_code", "activity_desc").
-	activities has 6 rows and two columns.
-	Creates "features" dataframe by using read.csv with sep="" and header=FALSE.
-	features has 561 rows and 2 columns.
+		and col.names=c(("activity_code", "activity_desc").
+		activities has 6 rows and two columns.
+		Creates "features" dataframe by using read.csv with sep="" and header=FALSE.
+		features has 561 rows and 2 columns.
 2.	From "test" directory, uses read.csv with sep="" and header=FALSE to create
 		X_test dataframe with col.names=as.character(features$V2)   2947 records by 561 fields
 		y_test dataframe with col.names="activity_code"             2947 records by 1 field
